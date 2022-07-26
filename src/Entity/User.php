@@ -41,6 +41,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Demande::class, orphanRemoval: true)]
     private Collection $demandes;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $discord = null;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -230,6 +233,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $demande->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDiscord(): ?string
+    {
+        return $this->discord;
+    }
+
+    public function setDiscord(?string $discord): self
+    {
+        $this->discord = $discord;
 
         return $this;
     }

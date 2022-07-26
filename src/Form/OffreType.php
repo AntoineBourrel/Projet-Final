@@ -21,7 +21,7 @@ class OffreType extends AbstractType
                 'choices' => [
                     'Magic The Gathering' => 'Magic the Gathering',
                     'Pokemon' => 'Pokemon',
-                    'Yu-Gi-Oh' => 'Yu-gi-Oh'
+                    'Yu-Gi-Oh' => 'Yu-Gi-Oh'
                 ]
             ])
             ->add('image', FileType::class, [

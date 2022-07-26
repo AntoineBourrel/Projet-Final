@@ -30,6 +30,7 @@ class UserType extends AbstractType
                 'invalid_message' => 'The password fields must match.'
             ])
             ->add('email')
+            ->add('discord')
             ->add('submit', SubmitType::class)
         ;
     }

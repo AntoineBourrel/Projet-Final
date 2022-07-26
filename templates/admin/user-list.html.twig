@@ -14,7 +14,7 @@
         {% for user in users %}
             <div class="row">
                 <div class="col-12">
-                    <h4>{{ user.username }}</h4>
+                    <a href="{{ path('admin_user_profil', {'id' : user.id}) }}"><h4>{{ user.username }}</h4></a>
                     {% for role in user.roles %}
                     <span>{{ role }} | </span>
                     {% endfor %}

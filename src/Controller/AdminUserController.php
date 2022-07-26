@@ -26,6 +26,17 @@ class AdminUserController extends AbstractController
     }
 
     /**
+     * @Route("/admin/user-profil/{id}", name="admin_user_profil")
+     */
+    public function userProfil($id, UserRepository $userRepository)
+    {
+        $user = $userRepository->find($id);
+        return $this->render('Admin/user-profil.html.twig',[
+            'user' => $user
+        ]);
+    }
+
+    /**
      * @Route("/admin/user-insert/", name="admin_user_insert")
      */
     public function userInsert(EntityManagerInterface $entityManager, Request $request, UserPasswordHasherInterface $userPasswordHasher)

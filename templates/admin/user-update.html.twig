@@ -13,6 +13,10 @@
                 {{ form_widget(form.username, {'attr': {'class': 'form-user-username-widget form-control'}}) }}
                 {{ form_errors(form.username) }}
                 <br>
+                {{ form_label(form.discord, 'Discord', {'label_attr': {'class': 'form-user-discord-label'}}) }}
+                {{ form_widget(form.discord, {'attr': {'class': 'form-user-discord-widget form-control'}}) }}
+                {{ form_errors(form.discord) }}
+                <br>
                 {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-user-email-label'}}) }}
                 {{ form_widget(form.email, {'attr': {'class': 'form-user-email-widget form-control'}}) }}
                 {{ form_errors(form.email) }}

@@ -18,13 +18,43 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class AdminOffreController extends AbstractController
 {
     /**
-     * @Route("/admin/offre-list/", name="admin_offre_list")
+     * @Route("/admin/offre/", name="admin_offre_choice")
      */
-    public function offreList(OffreRepository $offreRepository)
+    public function offreChoice()
     {
-        $offres = $offreRepository->findAll();
-        return $this->render('admin/offre-list.html.twig', [
-            'offres' => $offres
+        return $this->render('admin/offre.html.twig');
+    }
+
+    /**
+     * @Route("/admin/offre-list-magic/", name="admin_offre_list_magic")
+     */
+    public function offreListMagic(OffreRepository $offreRepository)
+    {
+        $offresMagic = $offreRepository->findBy(array('game' => 'Magic the Gathering'));
+        return $this->render('admin/offre-list-magic.html.twig', [
+            'offres' => $offresMagic
+        ]);
+    }
+
+    /**
+     * @Route("/admin/offre-list-pokemon/", name="admin_offre_list_pokemon")
+     */
+    public function offreListPokemon(OffreRepository $offreRepository)
+    {
+        $offresPokemon = $offreRepository->findBy(array('game' => 'Pokemon'));
+        return $this->render('admin/offre-list-pokemon.html.twig', [
+            'offres' => $offresPokemon
+        ]);
+    }
+
+    /**
+     * @Route("/admin/offre-list-yugioh/", name="admin_offre_list_yugioh")
+     */
+    public function offreListYugioh(OffreRepository $offreRepository)
+    {
+        $offresYugioh = $offreRepository->findBy(array('game' => 'Yu-Gi-Oh'));
+        return $this->render('admin/offre-list-yugioh.html.twig', [
+            'offres' => $offresYugioh
         ]);
     }
 
@@ -48,7 +78,65 @@ class AdminOffreController extends AbstractController
         $offre->setPublishedAt(new \DateTime('now'));
         $user = $this->getUser();
         $offre->setUser($user);
-        // Création d'un formulaire lié à la table Article via ses paramètres lié à l'instance de Book
+        // Création d'un formulaire lié à la table Offre via ses paramètres lier à l'instance de Book
+        $form = $this->createForm(OffreType::class, $offre);
+
+        // On donne la variable form une instance de Request pour que le formulaire puisse
+        // récupérer les données et les traiter automatiquement
+        $form->handleRequest($request);
+
+        // Si le formulaire à été posté et que les données sont valides, on envoie sur la base de données
+        if($form->isSubmitted() && $form->isValid()){
+            $image = $form->get('image')->getData();
+            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            // this is needed to safely include the file name as part of the URL
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+
+            $image->move(
+                $this->getParameter('images_directory'),
+                $newFilename
+            );
+
+            $offre->setImage($newFilename);
+
+            $entityManager->persist($offre);
+            $entityManager->flush();
+            $this->addFlash('success', 'Vous avez bien ajouté votre Offre');
+        }
+        return $this->render('Admin/offre-insert.html.twig', [
+            // Utilisation de la méthode createView pour créer la view du formulaire
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/offre-delete/{id}", name="admin_offre_delete")
+     */
+    public function offreDelete($id, EntityManagerInterface $entityManager, OffreRepository  $offreRepository)
+    {
+        $offre = $offreRepository->find($id);
+        if(!is_null($offre))
+        {
+            $entityManager->remove($offre);
+            $entityManager->flush();
+            $this->addFlash('success', 'Vous avez bien supprimé votre offre');
+            return $this->redirectToRoute('admin_offre_choice');
+        }
+        $this->addFlash('error', 'Offre introuvable');
+        return $this->redirectToRoute('admin_offre_choice');
+    }
+
+    /**
+     * @Route("/admin/offre-update/{id}", name="admin_offre_update")
+     */
+    public function offreUpdate($id, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, OffreRepository $offreRepository)
+    {
+        $offre = $offreRepository->find($id);
+        $offre->setPublishedAt(new \DateTime('now'));
+        $user = $this->getUser();
+        $offre->setUser($user);
+        // Création d'un formulaire lié à la table Offre via ses paramètres lier à l'instance de Book
         $form = $this->createForm(OffreType::class, $offre);
 
         // On donne la variable form une instance de Request pour que le formulaire puisse

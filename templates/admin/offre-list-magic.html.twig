@@ -1,0 +1,24 @@
+{% extends 'admin/base.html.twig' %}
+
+
+{% block title %}
+    Liste d'offres Magic
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ path('admin_offre_insert') }}" class="btn bg-warning">Créer une nouvelle offre</a>
+        </div>
+    </div>
+    {% for offre in offres %}
+        <div class="row offre-line">
+            <div class="col-12">
+                <a href="{{ path('admin_offre_show', {'id' : offre.id }) }}">{{ offre.title }} | {{ offre.game }} | {{ offre.edition}} | {{ offre.publishedAt | date('d-m-y') }}</a>
+                <a href="{{ path('admin_offre_update', {'id' : offre.id }) }}" class="btn bg-warning">Modifier</a>
+                <a href="{{ path('admin_offre_delete', {'id' : offre.id }) }}" class="btn bg-warning">Supprimer</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
