@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Liste d'article
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <a href="{{ path('admin_article_insert')}}" class="btn bg-warning">Créer un nouvel Article</a>
+            </div>
+        </div>
+        {% for article in articles %}
+            <div class="row">
+                <div class="col-12">
+                    {% include '_article.html.twig' %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <a href="{{ path('admin_article_update', {'id' : article.id }) }}" class="btn bg-warning">Modifier</a>
+                    <a href="{{ path('admin_article_delete', {'id' : article.id }) }}" class="btn bg-warning">Supprimer</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

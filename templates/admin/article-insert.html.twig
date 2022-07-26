@@ -1,0 +1,30 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Nouvel Article
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+                {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-article-title-label'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-article-title-widget form-control'}}) }}
+                {{ form_errors(form.title) }}
+                <br>
+                {{ form_label(form.content, 'Content', {'label_attr': {'class': 'form-article-Content-label'}}) }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-article-content-widget form-control'}}) }}
+                {{ form_errors(form.content) }}
+                <br>
+                {{ form_label(form.image, 'Image') }}
+                {{ form_widget(form.image) }}
+                {{ form_errors(form.image) }}
+                <br>
+                {{ form_label(form.submit, 'Submit', {'label_attr': {'class': 'form-article-submit-label'}}) }}
+                {{ form_widget(form.submit, {'attr': {'class': 'form-article-submit-widget btn bg-warning'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

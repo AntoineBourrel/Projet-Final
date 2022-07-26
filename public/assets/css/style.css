@@ -1,0 +1,79 @@
+header {
+  background-color: black;
+  color: white;
+}
+
+.logo-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  height: 5rem;
+}
+
+.name-site {
+  text-transform: capitalize;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.menu-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-desktop {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+.menu-desktop li {
+  margin: 0.5rem;
+}
+.menu-desktop li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
+}
+
+.header-mobile {
+  display: none;
+}
+
+.d-b {
+  display: none;
+}
+
+.icons {
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: 3px solid white;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 640px) {
+  .header-desktop {
+    display: none;
+  }
+  .header-mobile {
+    display: block;
+  }
+}
+footer {
+  background-color: black;
+  color: white;
+}
+
+main {
+  background-color: #E8891D;
+}
+
+img {
+  height: 100px;
+}
+
+/*# sourceMappingURL=style.css.map */

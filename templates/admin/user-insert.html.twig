@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Nouvel Article
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                {{ form_start(form) }}
+                {{ form_label(form.username, 'Username', {'label_attr': {'class': 'form-user-username-label'}}) }}
+                {{ form_widget(form.username, {'attr': {'class': 'form-user-username-widget form-control'}}) }}
+                {{ form_errors(form.username) }}
+                <br>
+                {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-user-email-label'}}) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-user-email-widget form-control'}}) }}
+                {{ form_errors(form.email) }}
+                <br>
+                {{ form_label(form.password, 'Password', {'label_attr': {'class': 'form-user-password-label'}}) }}
+                {{ form_widget(form.password, {'attr': {'class': 'form-user-password-widget'}}) }}
+                {{ form_errors(form.password) }}
+                <br>
+                {{ form_label(form.roles, 'roles', {'label_attr': {'class': 'form-user-roles-label'}}) }}
+                {{ form_widget(form.roles, {'attr': {'class': 'form-user-roles-widget form-control'}}) }}
+                {{ form_errors(form.roles) }}
+                <br>
+                {{ form_label(form.submit, 'Submit', {'label_attr': {'class': 'form-article-submit-label'}}) }}
+                {{ form_widget(form.submit, {'attr': {'class': 'form-article-submit-widget btn bg-warning'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

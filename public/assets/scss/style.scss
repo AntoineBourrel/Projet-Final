@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'header';
+@import "footer";
+
+
+main{
+  background-color: $main-bg-clr;
+}
+
+img{
+  height: 100px;
+}

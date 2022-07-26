@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Admin Board{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="{{ asset('assets/lib/bootstrap/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header-desktop">
+                <div class="container-fluid">
+                    <div class="row header-line">
+                        <div class="col-3">
+                            <div class="logo-block">
+                                <a href="{{ path('admin_home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="logo"></a>
+                                <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
+                            </div>
+                        </div>
+                        <div class="col-5 offset-4 menu-block">
+                            <ul class="menu-desktop">
+                                <li><a href="{{ path('admin_home') }}">Accueil</a></li>
+                                <li><a href="{{ path('admin_user_list') }}">Admin</a></li>
+                                <li><a href="">Offre</a></li>
+                                <li><a href="">Demande</a></li>
+                                <li><a href="{{ path('admin_article_list') }}">Article</a></li>
+                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <nav class="header-mobile">
+                <div class="container-fluid">
+                    <div class="row header-line-mobile flex-row">
+                        <div class="col-12">
+                            <div class="logo-block justify-content-center">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="logo">
+                                <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
+                            </div>
+                            <div class="col-12 text-center">
+                                <i class="fa-solid fa-bars icons"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 menu-block">
+                            <ul class="menu-mobile d-b">
+                                <li><a href="{{ path('admin_home') }}">Accueil</a></li>
+                                <li><a href="">Admin</a></li>
+                                <li><a href="">Offre</a></li>
+                                <li><a href="">Demande</a></li>
+                                <li><a href="{{ path('admin_article_list') }}">Article</a></li>
+                                <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        {% for message in app.flashes('success') %}
+            <p class="message-success">{{ message }}</p>
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <p class="message-error">{{ message }}</p>
+        {% endfor %}
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <p>Footer Footer Footer</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://kit.fontawesome.com/fbf865611e.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/lib/bootstrap/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

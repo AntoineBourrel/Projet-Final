@@ -1,0 +1,11 @@
+<article>
+    <div class="block-image">
+        <img src="{{ asset('assets/img/' ~ article.image) }}" alt="article image">
+    </div>
+    <div class="block-text">
+        <h2>{{ article.title }}</h2>
+        <p>publié le : {{ article.publishedAt | date('d-m-y')}}</p>
+        <p>{{ article.content }}</p>
+        <p>Auteur : {{ article.user.username }}</p>
+    </div>
+</article>
