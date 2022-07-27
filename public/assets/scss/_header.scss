@@ -1,6 +1,7 @@
 header{
   background-color: black;
   color: white;
+  padding: 1rem;
 }
 
 .logo-block{
@@ -29,6 +30,7 @@ header{
   list-style: none;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   li{
     margin: 0.5rem;
     a{
@@ -36,11 +38,26 @@ header{
       text-transform: capitalize;
       color: white;
     }
+    a:hover{
+      color: yellow;
+    }
   }
 }
 
 .header-mobile{
   display: none;
+  list-style: none !important;
+  li{
+    list-style: none;
+    a{
+      text-decoration: none;
+      text-transform: capitalize;
+      color: white;
+    }
+    a:hover{
+      color: yellow;
+    }
+  }
 }
 .d-b{
   display: none;
@@ -54,7 +71,7 @@ header{
   border-radius: 15px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 500px) {
   .header-desktop{
     display: none;
   }
@@ -63,3 +80,5 @@ header{
     display: block;
   }
 }
+
+

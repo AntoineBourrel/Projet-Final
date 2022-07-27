@@ -1,7 +1,20 @@
 {% extends 'admin/base.html.twig' %}
 {% block main %}
-    <h1>Bonjour</h1>
-    {% for article in lastArticles %}
-        {% include '_article.html.twig' %}
-    {% endfor %}
+    <section id="banner" class="banner">
+        <img src="{{ asset('assets/img/slide1.jpg') }}" alt="image banner">
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Bonjour {{ app.user.username }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for article in lastArticles %}
+            <div class="row article-block">
+                {{ include('_article.html.twig') }}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

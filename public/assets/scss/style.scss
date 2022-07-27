@@ -1,12 +1,49 @@
 @import 'variables';
+@import 'mixins';
 @import 'header';
 @import "footer";
+@import "articlelist";
 
+body{
+  margin: 0;
+  padding: 0;
+}
 
 main{
   background-color: $main-bg-clr;
+  padding-bottom: 1rem;
 }
 
-img{
-  height: 100px;
+
+.btn{
+  @include btn;
+}
+
+.banner img{
+  height: 350px;
+  width: 100vw;
+}
+
+.article-block{
+  border: 1px solid black;
+  background-color: white;
+  margin: 1rem;
+}
+
+
+.block-image{
+  margin: 1rem;
+  img{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .banner{
+    display: none;
+  }
+  .article-block{
+    align-items: center;
+  }
 }

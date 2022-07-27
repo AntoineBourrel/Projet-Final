@@ -1,11 +1,13 @@
-<article>
+<div class="col-12 text-center col-lg-2 text-sm-start">
     <div class="block-image">
         <img src="{{ asset('assets/img/' ~ article.image) }}" alt="article image">
     </div>
-    <div class="block-text">
-        <h2>{{ article.title }}</h2>
-        <p>publié le : {{ article.publishedAt | date('d-m-y')}}</p>
-        <p>{{ article.content }}</p>
-        <p>Auteur : {{ article.user.username }}</p>
+</div>
+<div class="col-12 text-center col-lg-3 text-sm-start">
+    <div class="desc-block">
+        <h4>{{ article.title }}</h4>
+        <p>Publié le : {{ article.publishedAt | date('d-m-y') }}</p>
+        <p>Par : {{ article.user.username }}</p>
+        <a href="{{ path('admin_article_show', {'id' : article.id }) }}">voir plus</a>
     </div>
-</article>
+</div>

@@ -21,22 +21,23 @@
                                 <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
                             </div>
                         </div>
-                        <div class="col-5 menu-block">
+                        <div class="col-6 menu-block">
                             <ul class="menu-desktop">
                                 <li><a href="{{ path('admin_home') }}">Accueil</a></li>
-                                <li><a href="{{ path('admin_user_list') }}">User</a></li>
-                                <li><a href="{{ path('admin_offre_choice') }}">Offre</a></li>
-                                <li><a href="{{ path('admin_demande_choice') }}">Demande</a></li>
-                                <li><a href="{{ path('admin_article_list') }}">Article</a></li>
+                                <li><a href="{{ path('admin_user_list') }}">Utilisateurs</a></li>
+                                <li><a href="{{ path('admin_offre_choice') }}">Offres</a></li>
+                                <li><a href="{{ path('admin_demande_choice') }}">Demandes</a></li>
+                                <li><a href="{{ path('admin_article_list') }}">Articles</a></li>
                                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                             </ul>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3 flex-row align-items-center">
                             <div class="search-bar">
                                 <form class="d-flex" role="search" action="{{ path('admin_search') }}" method="get">
                                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                    <button class="btn btn-warning" type="submit">Search</button>
                                 </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +51,7 @@
                                 <img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="logo">
                                 <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
                             </div>
-                            <div class="col-12 text-center">
+                            <div class="col-12 text-center block-icon">
                                 <i class="fa-solid fa-bars icons"></i>
                             </div>
                         </div>
@@ -59,12 +60,22 @@
                         <div class="col-12 menu-block">
                             <ul class="menu-mobile d-b">
                                 <li><a href="{{ path('admin_home') }}">Accueil</a></li>
-                                <li><a href="{{ path('admin_user_list') }}">User</a></li>
-                                <li><a href="{{ path('admin_offre_choice') }}">Offre</a></li>
-                                <li><a href="{{ path('admin_demande_choice') }}">Demande</a></li>
-                                <li><a href="{{ path('admin_article_list') }}">Article</a></li>
+                                <li><a href="{{ path('admin_user_list') }}">Utilisateur</a></li>
+                                <li><a href="{{ path('admin_offre_choice') }}">Offres</a></li>
+                                <li><a href="{{ path('admin_demande_choice') }}">Demandes</a></li>
+                                <li><a href="{{ path('admin_article_list') }}">Articles</a></li>
                                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="search-bar">
+                                <form class="d-flex" role="search" action="{{ path('admin_search') }}" method="get">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                                    <button class="btn btn-success" type="submit">Search</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,8 +97,20 @@
         <footer>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <p>Footer Footer Footer</p>
+                    <div class=" col-12 col-lg-4">
+                        <div class="logo-footer flex-row">
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="logo footer">
+                            <p class="name-site-footer">Le Bazar Des Mages</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 offset-lg-5">
+                        <div class="contact-block">
+                            <h4>Contact</h4>
+                            <p>Adresse : 3 Allée Pierre Dac</p>
+                            <p>Ville : 33170 Gradignan</p>
+                            <p>Email : xxxxx.xxxxx@gmail.com</p>
+                            <p>Serveur Discord: <a href="https://discord.gg/3ZPxEaTU">Le Bazar des mages</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
