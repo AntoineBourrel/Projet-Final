@@ -21,15 +21,22 @@
                                 <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
                             </div>
                         </div>
-                        <div class="col-5 offset-4 menu-block">
+                        <div class="col-5 menu-block">
                             <ul class="menu-desktop">
                                 <li><a href="{{ path('admin_home') }}">Accueil</a></li>
                                 <li><a href="{{ path('admin_user_list') }}">User</a></li>
                                 <li><a href="{{ path('admin_offre_choice') }}">Offre</a></li>
-                                <li><a href="">Demande</a></li>
+                                <li><a href="{{ path('admin_demande_choice') }}">Demande</a></li>
                                 <li><a href="{{ path('admin_article_list') }}">Article</a></li>
                                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                             </ul>
+                        </div>
+                        <div class="col-4">
+                            <div class="search-bar">
+                                <form class="d-flex" role="search" action="{{ path('admin_search') }}" method="get">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -54,7 +61,7 @@
                                 <li><a href="{{ path('admin_home') }}">Accueil</a></li>
                                 <li><a href="{{ path('admin_user_list') }}">User</a></li>
                                 <li><a href="{{ path('admin_offre_choice') }}">Offre</a></li>
-                                <li><a href="">Demande</a></li>
+                                <li><a href="{{ path('admin_demande_choice') }}">Demande</a></li>
                                 <li><a href="{{ path('admin_article_list') }}">Article</a></li>
                                 <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                             </ul>

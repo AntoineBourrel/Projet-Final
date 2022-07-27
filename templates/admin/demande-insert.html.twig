@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    Nouvelle Demande
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form_start(form) }}
+                {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-demande-title-label'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-demande-title-widget form-control'}}) }}
+                {{ form_errors(form.title) }}
+                <br>
+                {{ form_label(form.edition, 'Edition', {'label_attr': {'class': 'form-demande-edition-label'}}) }}
+                {{ form_widget(form.edition, {'attr': {'class': 'form-demande-edition-widget form-control'}}) }}
+                {{ form_errors(form.edition) }}
+                <br>
+                {{ form_label(form.game, 'Jeux', {'label_attr': {'class': 'form-demande-game-label'}}) }}
+                {{ form_widget(form.game, {'attr': {'class': 'form-demande-game-widget form-control'}}) }}
+                {{ form_errors(form.game) }}
+                <br>
+                {{ form_label(form.comment, 'Commentaire', {'label_attr': {'class': 'form-demande-comment-label'}}) }}
+                {{ form_widget(form.comment, {'attr': {'class': 'form-demande-comment-widget form-control'}}) }}
+                {{ form_errors(form.comment) }}
+                <br>
+                {{ form_label(form.submit, 'Submit', {'label_attr': {'class': 'form-demande-submit-label'}}) }}
+                {{ form_widget(form.submit, {'attr': {'class': 'form-demande-submit-widget btn bg-warning'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
