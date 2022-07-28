@@ -90,7 +90,7 @@
             <p class="message-error">{{ message }}</p>
         {% endfor %}
 
-        <main>
+        <main class="{% block classMain %}{% endblock %}">
             {% block main %}{% endblock %}
         </main>
 
@@ -109,7 +109,7 @@
                             <p>Adresse : 3 Allée Pierre Dac</p>
                             <p>Ville : 33170 Gradignan</p>
                             <p>Email : xxxxx.xxxxx@gmail.com</p>
-                            <p>Serveur Discord: <a href="https://discord.gg/3ZPxEaTU">Le Bazar des mages</a></p>
+                            <a href="https://discord.gg/3ZPxEaTU"><i class="fa-brands fa-discord"></i></a>
                         </div>
                     </div>
                 </div>

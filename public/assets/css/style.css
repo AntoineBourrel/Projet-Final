@@ -84,6 +84,10 @@ footer {
   background-color: black;
   color: white;
 }
+footer a {
+  text-decoration: none;
+  color: white;
+}
 
 .logo-footer {
   display: flex;
@@ -112,8 +116,29 @@ footer {
 .option-block {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
+.article-show {
+  padding-top: 1rem;
+}
+
+.article-box {
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: white;
+}
+.article-box img {
+  height: 200px;
+  width: 400px;
+}
+
+@media screen and (max-width: 500px) {
+  .article-box img {
+    height: 100px;
+    width: 100px;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -138,7 +163,7 @@ main {
 .article-block {
   border: 1px solid black;
   background-color: white;
-  margin: 1rem;
+  margin-top: 1rem;
 }
 
 .block-image {
