@@ -3,6 +3,7 @@
 
 @import 'header';
 @import "footer";
+@import "login";
 
 @import "articlelist";
 @import "articleshow";
@@ -53,7 +54,15 @@ main{
   margin-top: 0.5rem;
 }
 
+.presentation{
+  h1{
+    color: white;
+  }
+}
+
+
 .banner img{
+  border-bottom: 1px solid black;
   height: 350px;
   width: 100vw;
 }

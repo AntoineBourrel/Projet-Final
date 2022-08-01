@@ -1,0 +1,15 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}
+    {{ demande.title }}
+{% endblock %}
+
+{% block classMain %}
+    demande-show
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% include '_demande.html.twig' %}
+    </div>
+{% endblock %}

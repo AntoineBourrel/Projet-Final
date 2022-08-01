@@ -15,7 +15,7 @@
     <div class="container">
         {% for article in articles %}
             <div class="row article-block align-items-center">
-                {{ include('_article.html.twig') }}
+                {{ include('admin/_article.html.twig') }}
                 <div class="col-12 text-center col-lg-2 offset-sm-4">
                     <div class="option-block">
                         <a href="{{ path('admin_article_update', {'id' : article.id }) }}" class="btn bg-warning">Modifier</a>

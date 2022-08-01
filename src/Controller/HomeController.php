@@ -12,9 +12,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
+     * @Route("/", name="home")
+     */
+    public function frontHome(ArticleRepository $articleRepository){
+        $lastArticles = $articleRepository->findBy([], ['id' => 'DESC'],3);
+        return $this->render('front/home.html.twig', [
+            'lastArticles' => $lastArticles
+        ]);
+    }
+
+    /**
      * @Route("/admin/", name="admin_home")
      */
-    public function home(ArticleRepository $articleRepository){
+    public function adminHome(ArticleRepository $articleRepository){
         $lastArticles = $articleRepository->findBy([], ['id' => 'DESC'],3);
         return $this->render('admin/home.html.twig', [
             'lastArticles' => $lastArticles

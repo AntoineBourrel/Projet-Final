@@ -1,0 +1,22 @@
+{% extends 'front/base.html.twig' %}
+{% block main %}
+    <section id="banner" class="banner">
+        <img src="{{ asset('assets/img/slide1.jpg') }}" alt="image banner">
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center presentation">
+                <h1>Le Site d'échange entre particuliers de cartes à jouer et collectionner</h1>
+                <p>Le bazar des Mages est un site créer par des passionnés pour des passionnés !
+                    Le site d'échange de carte à jouer et à collectionner, sans payment, juste des particuliers qui veulent marchandé leurs trésors contre les trésors des autres particuliers.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for article in lastArticles %}
+            <div class="row article-block">
+                {{ include('front/_article.html.twig') }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -113,6 +113,14 @@ footer a {
   padding: 0;
 }
 
+.login {
+  padding-top: 1rem;
+}
+
+.article-list {
+  padding-top: 1rem;
+}
+
 .option-block {
   display: flex;
   flex-direction: row;
@@ -211,6 +219,7 @@ footer a {
 }
 .annonce-line a {
   color: black;
+  text-decoration: none;
 }
 
 .demande-show {
@@ -348,7 +357,12 @@ main {
   margin-top: 0.5rem;
 }
 
+.presentation h1 {
+  color: white;
+}
+
 .banner img {
+  border-bottom: 1px solid black;
   height: 350px;
   width: 100vw;
 }
