@@ -3,8 +3,7 @@
 }
 
 .annonce-line{
-  border: 1px solid black;
-  background-color: white;
+  @include box;
   padding: 1rem;
   margin: 1rem;
   a{

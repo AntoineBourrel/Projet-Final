@@ -4,22 +4,19 @@
 }
 
 .demande-title{
-  border: 1px solid black;
-  background-color: white;
+  @include box;
 
   margin: 0.5rem;
 }
 
 .demande-info{
-  border: 1px solid black;
-  background-color: white;
+  @include box;
 
   margin: 0.5rem;
 }
 
 .demande-comment{
-  border: 1px solid black;
-  background-color: white;
+  @include box;
 
   margin: 0.5rem;
 }

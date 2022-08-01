@@ -3,3 +3,22 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.article-block{
+  @include box;
+  margin-top: 1rem;
+}
+
+.block-image{
+  margin: 1rem;
+  img{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .article-block{
+    align-items: center;
+  }
+}

@@ -4,10 +4,14 @@
     Nouvel Article
 {% endblock %}
 
+{% block classMain %}
+    user-insert
+{% endblock %}
+
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-6">
+        <div class="row bloc-formulaire">
+            <div class="col-12">
                 {{ form_start(form) }}
                 {{ form_label(form.username, 'Username', {'label_attr': {'class': 'form-user-username-label'}}) }}
                 {{ form_widget(form.username, {'attr': {'class': 'form-user-username-widget form-control'}}) }}

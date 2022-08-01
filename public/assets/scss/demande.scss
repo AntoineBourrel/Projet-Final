@@ -7,8 +7,7 @@
 }
 
 .bloc-list-choice{
-  border: 1px solid black;
-  background-color: white;
+  @include box;
   padding: 1rem;
   img{
     height: 5rem;

@@ -1,9 +1,9 @@
-.article-insert{
+.user-list{
   padding-top: 1rem;
 }
 
-.bloc-formulaire{
+.bloc-user{
   @include box;
-  padding: 1rem;
   margin: 1rem;
+  padding: 0.5rem;
 }

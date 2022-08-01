@@ -18,6 +18,10 @@
 @import "offreshow";
 @import "offreinsert";
 
+@import "userinsert";
+@import "userlist";
+@import "userprofil";
+
 
 body{
   margin: 0;
@@ -54,26 +58,9 @@ main{
   width: 100vw;
 }
 
-.article-block{
-  border: 1px solid black;
-  background-color: white;
-  margin-top: 1rem;
-}
-
-
-.block-image{
-  margin: 1rem;
-  img{
-    height: 100px;
-    width: 100px;
-  }
-}
 
 @media screen and (max-width: 500px) {
   .banner{
     display: none;
-  }
-  .article-block{
-    align-items: center;
   }
 }

@@ -3,3 +3,8 @@
   background-color: yellow;
   color: black;
 }
+
+@mixin box{
+  border: 1px solid black;
+  background-color: white;
+}

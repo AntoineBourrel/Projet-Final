@@ -4,6 +4,10 @@
     Liste d'utilisateurs
 {% endblock %}
 
+{% block classMain %}
+    user-list
+{% endblock %}
+
 {% block main %}
     <div class="container">
         <div class="row">
@@ -12,16 +16,14 @@
             </div>
         </div>
         {% for user in users %}
-            <div class="row">
-                <div class="col-12">
+            <div class="row bloc-user">
+                <div class="col-12 text-center col-sm-6 text-sm-start">
                     <a href="{{ path('admin_user_profil', {'id' : user.id}) }}"><h4>{{ user.username }}</h4></a>
                     {% for role in user.roles %}
                     <span>{{ role }} | </span>
                     {% endfor %}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
+                <div class="col-12 text-center col-sm-6 text-sm-end">
                     <a href="{{ path('admin_user_update', {'id' : user.id }) }}" class="btn bg-warning">Modifier</a>
                     <a href="{{ path('admin_user_delete', {'id' : user.id }) }}" class="btn bg-warning">Supprimer</a>
                 </div>
