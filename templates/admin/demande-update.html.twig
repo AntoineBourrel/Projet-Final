@@ -4,10 +4,14 @@
     Modification Demande
 {% endblock %}
 
+{% block classMain %}
+    demande-insert
+{% endblock %}
+
 {% block main %}
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 bloc-formulaire">
                 {{ form_start(form) }}
                 {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-demande-title-label'}}) }}
                 {{ form_widget(form.title, {'attr': {'class': 'form-demande-title-widget form-control'}}) }}

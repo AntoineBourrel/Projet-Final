@@ -139,6 +139,65 @@ footer a {
     width: 100px;
   }
 }
+.article-insert {
+  padding-top: 1rem;
+}
+
+.bloc-formulaire {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.demande {
+  padding-top: 1rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bloc-list-choice {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1rem;
+}
+.bloc-list-choice img {
+  height: 5rem;
+  width: 10rem;
+}
+.bloc-list-choice a {
+  color: black;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .demande {
+    height: 50rem;
+  }
+  .bloc-list-choice {
+    margin: 2rem;
+  }
+}
+.demande-list {
+  padding-top: 1rem;
+}
+
+.annonce-line {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem;
+}
+.annonce-line a {
+  color: black;
+}
+
+.demande-insert {
+  padding-top: 1rem;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -153,6 +212,14 @@ main {
   margin: 0.5rem;
   background-color: yellow;
   color: black;
+}
+
+.message-error {
+  background-color: red;
+}
+
+.message-success {
+  background-color: green;
 }
 
 .banner img {

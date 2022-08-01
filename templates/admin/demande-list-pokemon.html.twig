@@ -1,8 +1,11 @@
 {% extends 'admin/base.html.twig' %}
 
-
 {% block title %}
     Liste d'offres Pokemon
+{% endblock %}
+
+{% block classMain %}
+    demande-list
 {% endblock %}
 
 {% block main %}
@@ -13,9 +16,11 @@
         </div>
     </div>
     {% for demande in demandes %}
-        <div class="row offre-line">
-            <div class="col-12">
+        <div class="row align-items-center justify-content-around annonce-line">
+            <div class="col-12 text-center col-lg-6 text-lg-start annonce">
                 <a href="{{ path('admin_demande_show', {'id' :demande.id }) }}">{{ demande.title }} | {{ demande.game }} | {{ demande.edition}} | {{ demande.publishedAt | date('d-m-y') }}</a>
+            </div>
+            <div class="col-12 text-center col-lg-3 offset-lg-2">
                 <a href="{{ path('admin_demande_update', {'id' : demande.id }) }}" class="btn bg-warning">Modifier</a>
                 <a href="{{ path('admin_demande_delete', {'id' : demande.id }) }}" class="btn bg-warning">Supprimer</a>
             </div>

@@ -1,9 +1,16 @@
 @import 'variables';
 @import 'mixins';
+
 @import 'header';
 @import "footer";
+
 @import "articlelist";
 @import "articleshow";
+@import "articleinsert";
+
+@import "demande";
+@import "demandelist";
+@import "demandeinsert";
 
 body{
   margin: 0;
@@ -18,6 +25,14 @@ main{
 
 .btn{
   @include btn;
+}
+
+.message-error{
+  background-color: red;
+}
+
+.message-success{
+  background-color: green;
 }
 
 .banner img{
