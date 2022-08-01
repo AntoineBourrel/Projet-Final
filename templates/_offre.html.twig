@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-12 text-center col-sm-5 offre-image">
         <img src="{{ asset('assets/img/' ~ offre.image) }}" alt="offre image">
     </div>
-    <div class="col-6">
+    <div class="col-12 col-sm-6 offre-info">
         <h4>{{ offre.title }}</h4>
-        <p>{{ offre.game }}</p>
+        <p><strong>{{ offre.game }}</strong></p>
         <p>{{ offre.edition }}</p>
         <p>Propriétaire : {{ offre.user.username }}</p>
         <p>Publié le : {{ offre.publishedAt | date('d-m-y') }}</p>

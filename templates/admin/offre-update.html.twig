@@ -4,9 +4,13 @@
     Modification Offre
 {% endblock %}
 
+{% block classMain %}
+    offre-insert
+{% endblock %}
+
 {% block main %}
     <div class="container">
-        <div class="row">
+        <div class="row bloc-formulaire">
             <div class="col-12">
                 {{ form_start(form) }}
                 {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-offre-title-label'}}) }}

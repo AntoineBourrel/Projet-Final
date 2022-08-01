@@ -4,16 +4,23 @@
     Offres
 {% endblock %}
 
+{% block classMain %}
+    offre
+{% endblock %}
+
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-3 offset-1">
+        <div class="row justify-content-around">
+            <div class="col-12 col-sm-3 text-center bloc-list-choice">
+                <img src="{{ asset('assets/img/logo-Magic.png.opdownload') }}" alt="logo Magic">
                 <a href="{{ path('admin_offre_list_magic') }}"><h2>Magic the Gathering</h2></a>
             </div>
-            <div class="col-3 offset-1">
+            <div class="col-12 col-sm-3 text-center bloc-list-choice">
+                <img src="{{ asset('assets/img/International_Pokémon_logo.svg.png') }}" alt="logo Pokemon">
                 <a href="{{ path('admin_offre_list_pokemon') }}"><h2>Pokémon</h2></a>
             </div>
-            <div class="col-3 offset-1">
+            <div class="col-12 col-sm-3 text-center bloc-list-choice">
+                <img src="{{ asset('assets/img/Yu-Gi-Oh_Logo.jfif') }}" alt="logo Magic">
                 <a href="{{ path('admin_offre_list_yugioh') }}"><h2>Yu-Gi-Oh</h2></a>
             </div>
         </div>

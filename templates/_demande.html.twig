@@ -1,10 +1,14 @@
 <div class="row">
-    <div class="col-12">
+    <div class="col-11 demande-title">
         <h4>{{ demande.title }}</h4>
-        <p>{{ demande.game }}</p>
+    </div>
+    <div class="col-11 col-sm-5 demande-info">
+        <p><strong>{{ demande.game }}</strong></p>
         <p>{{ demande.edition }}</p>
         <p>Propriétaire : {{ demande.user.username }}</p>
         <p>Publié le : {{ demande.publishedAt | date('d-m-y') }}</p>
+    </div>
+    <div class="col-11 col-sm-6 demande-comment">
         <p>Commentaire :</p>
         <p>{{ demande.comment }}</p>
     </div>

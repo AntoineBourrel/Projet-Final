@@ -3,12 +3,13 @@
 {% block title %}
     {{ demande.title }}
 {% endblock %}
+
+{% block classMain %}
+    demande-show
+{% endblock %}
+
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                {% include '_demande.html.twig' %}
-            </div>
-        </div>
+        {% include '_demande.html.twig' %}
     </div>
 {% endblock %}
