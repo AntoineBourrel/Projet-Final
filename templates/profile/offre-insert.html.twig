@@ -1,0 +1,42 @@
+{% extends 'profile/base.html.twig' %}
+
+{% block title %}
+    Nouvelle Offre
+{% endblock %}
+
+{% block classMain %}
+    offre-insert
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row bloc-formulaire">
+            <div class="col-12">
+                {{ form_start(form) }}
+                {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-offre-title-label'}}) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-offre-title-widget form-control'}}) }}
+                {{ form_errors(form.title) }}
+                <br>
+                {{ form_label(form.image, 'Image') }}
+                {{ form_widget(form.image) }}
+                {{ form_errors(form.image) }}
+                <br>
+                {{ form_label(form.edition, 'Edition', {'label_attr': {'class': 'form-offre-edition-label'}}) }}
+                {{ form_widget(form.edition, {'attr': {'class': 'form-offre-edition-widget form-control'}}) }}
+                {{ form_errors(form.edition) }}
+                <br>
+                {{ form_label(form.game, 'Jeux', {'label_attr': {'class': 'form-offre-game-label'}}) }}
+                {{ form_widget(form.game, {'attr': {'class': 'form-offre-game-widget form-control'}}) }}
+                {{ form_errors(form.game) }}
+                <br>
+                {{ form_label(form.comment, 'Commentaire', {'label_attr': {'class': 'form-offre-comment-label'}}) }}
+                {{ form_widget(form.comment, {'attr': {'class': 'form-offre-comment-widget form-control'}}) }}
+                {{ form_errors(form.comment) }}
+                <br>
+                {{ form_label(form.submit, 'Submit', {'label_attr': {'class': 'form-offre-submit-label'}}) }}
+                {{ form_widget(form.submit, {'attr': {'class': 'form-offre-submit-widget btn bg-warning'}}) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

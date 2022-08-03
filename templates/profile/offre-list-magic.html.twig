@@ -1,0 +1,32 @@
+{% extends 'profile/base.html.twig' %}
+
+
+{% block title %}
+    Liste d'offres Magic
+{% endblock %}
+
+{% block classMain %}
+    offre-list
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ path('profile_offre_insert') }}" class="btn bg-warning">Créer une nouvelle offre</a>
+        </div>
+    </div>
+    {% for offre in offres %}
+        <div class="row align-items-center justify-content-around annonce-line">
+            <div class="col-12 text-center col-lg-6 text-lg-start annonce">
+                <a href="{{ path('profile_offre_show', {'id' :offre.id }) }}">{{ offre.title }} | {{ offre.game }} | {{ offre.edition}} | {{ offre.publishedAt | date('d-m-y') }}</a>
+            </div>
+            <div class="col-12 text-center col-lg-3 offset-lg-2">
+                {% if app.user.id == offre.user.id %}
+                <a href="{{ path('profile_offre_update', {'id' : offre.id }) }}" class="btn bg-warning">Modifier</a>
+                <a href="{{ path('profile_offre_delete', {'id' : offre.id }) }}" class="btn bg-warning">Supprimer</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

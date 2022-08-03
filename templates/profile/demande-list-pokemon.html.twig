@@ -1,0 +1,31 @@
+{% extends 'profile/base.html.twig' %}
+
+{% block title %}
+    Liste d'offres Pokemon
+{% endblock %}
+
+{% block classMain %}
+    demande-list
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ path('profile_demande_insert') }}" class="btn bg-warning">Créer une nouvelle offre</a>
+        </div>
+    </div>
+    {% for demande in demandes %}
+        <div class="row align-items-center justify-content-around annonce-line">
+            <div class="col-12 text-center col-lg-6 text-lg-start annonce">
+                <a href="{{ path('profile_demande_show', {'id' :demande.id }) }}">{{ demande.title }} | {{ demande.game }} | {{ demande.edition}} | {{ demande.publishedAt | date('d-m-y') }}</a>
+            </div>
+            <div class="col-12 text-center col-lg-3 offset-lg-2">
+                {% if app.user.id == demande.user.id %}
+                <a href="{{ path('profile_demande_update', {'id' : demande.id }) }}" class="btn bg-warning">Modifier</a>
+                <a href="{{ path('profile_demande_delete', {'id' : demande.id }) }}" class="btn bg-warning">Supprimer</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

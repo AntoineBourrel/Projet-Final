@@ -30,4 +30,14 @@ class HomeController extends AbstractController
             'lastArticles' => $lastArticles
         ]);
     }
+
+    /**
+     * @Route("/profile/", name="profile_home")
+     */
+    public function userHome(ArticleRepository $articleRepository){
+        $lastArticles = $articleRepository->findBy([], ['id' => 'DESC'],3);
+        return $this->render('profile/home.html.twig', [
+            'lastArticles' => $lastArticles
+        ]);
+    }
 }

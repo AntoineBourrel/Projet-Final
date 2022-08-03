@@ -1,0 +1,15 @@
+.search{
+  padding-top: 1rem;
+  min-height: 20rem;
+}
+
+.bloc-search{
+  @include box;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .bloc-search{
+    margin-bottom: 1rem;
+  }
+}

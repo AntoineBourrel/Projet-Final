@@ -1,0 +1,20 @@
+{% extends 'profile/base.html.twig' %}
+{% block main %}
+    <section id="banner" class="banner">
+        <img src="{{ asset('assets/img/slide1.jpg') }}" alt="image banner">
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center title">
+                <h1>Bonjour {{ app.user.username }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for article in lastArticles %}
+            <div class="row article-block">
+                {{ include('profile/_article.html.twig') }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

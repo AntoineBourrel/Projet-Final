@@ -22,9 +22,30 @@ class SearchController extends AbstractController
 {
     //méthode de recherche d'un titre dans la bdd
     /**
+     * @Route("/search", name="search")
+     */
+    public function frontSearch(Request $request, OffreRepository $offreRepository, DemandeRepository $demandeRepository){
+        // Récupération valeur GET dans l'URL
+        $search = $request->query->get('search');
+
+        // je vais créer une méthode dans le BookRepository
+        // qui trouve un livre en fonction d'un mot dans son titre
+        $offres = $offreRepository->searchByWord($search);
+        $demandes = $demandeRepository->searchByWord($search);
+
+
+        // Renvoie vers le fichier twig
+        return $this->render('front/search.html.twig', [
+            'offres' => $offres,
+            'demandes' =>$demandes
+        ]);
+    }
+
+    //méthode de recherche d'un titre dans la bdd
+    /**
      * @Route("/admin/search", name="admin_search")
      */
-    public function search(Request $request, OffreRepository $offreRepository, DemandeRepository $demandeRepository){
+    public function adminSearch(Request $request, OffreRepository $offreRepository, DemandeRepository $demandeRepository){
         // Récupération valeur GET dans l'URL
         $search = $request->query->get('search');
 
@@ -36,6 +57,26 @@ class SearchController extends AbstractController
 
         // Renvoie vers le fichier twig
         return $this->render('admin/search.html.twig', [
+            'offres' => $offres,
+            'demandes' =>$demandes
+        ]);
+    }
+
+    /**
+     * @Route("/profile/search", name="profile_search")
+     */
+    public function profileSearch(Request $request, OffreRepository $offreRepository, DemandeRepository $demandeRepository){
+        // Récupération valeur GET dans l'URL
+        $search = $request->query->get('search');
+
+        // je vais créer une méthode dans le BookRepository
+        // qui trouve un livre en fonction d'un mot dans son titre
+        $offres = $offreRepository->searchByWord($search);
+        $demandes = $demandeRepository->searchByWord($search);
+
+
+        // Renvoie vers le fichier twig
+        return $this->render('profile/search.html.twig', [
             'offres' => $offres,
             'demandes' =>$demandes
         ]);

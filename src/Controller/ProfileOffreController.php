@@ -15,62 +15,62 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class AdminOffreController extends AbstractController
+class ProfileOffreController extends AbstractController
 {
     /**
-     * @Route("/admin/offre/", name="admin_offre_choice")
+     * @Route("/profile/offre/", name="profile_offre_choice")
      */
     public function offreChoice()
     {
-        return $this->render('admin/offre.html.twig');
+        return $this->render('profile/offre.html.twig');
     }
 
     /**
-     * @Route("/admin/offre-list-magic/", name="admin_offre_list_magic")
+     * @Route("/profile/offre-list-magic/", name="profile_offre_list_magic")
      */
     public function offreListMagic(OffreRepository $offreRepository)
     {
         $offresMagic = $offreRepository->findBy(array('game' => 'Magic the Gathering'));
-        return $this->render('admin/offre-list-magic.html.twig', [
+        return $this->render('profile/offre-list-magic.html.twig', [
             'offres' => $offresMagic
         ]);
     }
 
     /**
-     * @Route("/admin/offre-list-pokemon/", name="admin_offre_list_pokemon")
+     * @Route("/profile/offre-list-pokemon/", name="profile_offre_list_pokemon")
      */
     public function offreListPokemon(OffreRepository $offreRepository)
     {
         $offresPokemon = $offreRepository->findBy(array('game' => 'Pokemon'));
-        return $this->render('admin/offre-list-pokemon.html.twig', [
+        return $this->render('profile/offre-list-pokemon.html.twig', [
             'offres' => $offresPokemon
         ]);
     }
 
     /**
-     * @Route("/admin/offre-list-yugioh/", name="admin_offre_list_yugioh")
+     * @Route("/profile/offre-list-yugioh/", name="profile_offre_list_yugioh")
      */
     public function offreListYugioh(OffreRepository $offreRepository)
     {
         $offresYugioh = $offreRepository->findBy(array('game' => 'Yu-Gi-Oh'));
-        return $this->render('admin/offre-list-yugioh.html.twig', [
+        return $this->render('profile/offre-list-yugioh.html.twig', [
             'offres' => $offresYugioh
         ]);
     }
 
     /**
-     * @Route("/admin/offre-show/{id}", name="admin_offre_show")
+     * @Route("/profile/offre-show/{id}", name="profile_offre_show")
      */
     public function offreShow($id, OffreRepository $offreRepository)
     {
         $offre = $offreRepository->find($id);
-        return $this->render('admin/offre-show.html.twig', [
+        return $this->render('profile/offre-show.html.twig', [
             'offre' => $offre
         ]);
     }
 
     /**
-     * @Route("/admin/offre-insert", name="admin_offre_insert")
+     * @Route("/profile/offre-insert", name="profile_offre_insert")
      */
     public function offreInsert(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger)
     {
@@ -104,14 +104,14 @@ class AdminOffreController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vous avez bien ajouté votre Offre');
         }
-        return $this->render('Admin/offre-insert.html.twig', [
+        return $this->render('profile/offre-insert.html.twig', [
             // Utilisation de la méthode createView pour créer la view du formulaire
             'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/admin/offre-delete/{id}", name="admin_offre_delete")
+     * @Route("/profile/offre-delete/{id}", name="profile_offre_delete")
      */
     public function offreDelete($id, EntityManagerInterface $entityManager, OffreRepository  $offreRepository)
     {
@@ -121,14 +121,14 @@ class AdminOffreController extends AbstractController
             $entityManager->remove($offre);
             $entityManager->flush();
             $this->addFlash('success', 'Vous avez bien supprimé votre offre');
-            return $this->redirectToRoute('admin_home');
+            return $this->redirectToRoute('profile_home');
         }
         $this->addFlash('error', 'Offre introuvable');
-        return $this->redirectToRoute('admin_home');
+        return $this->redirectToRoute('profile_home');
     }
 
     /**
-     * @Route("/admin/offre-update/{id}", name="admin_offre_update")
+     * @Route("/profile/offre-update/{id}", name="profile_offre_update")
      */
     public function offreUpdate($id, Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, OffreRepository $offreRepository)
     {
@@ -162,7 +162,7 @@ class AdminOffreController extends AbstractController
             $entityManager->flush();
             $this->addFlash('success', 'Vous avez bien ajouté votre Offre');
         }
-        return $this->render('Admin/offre-insert.html.twig', [
+        return $this->render('profile/offre-insert.html.twig', [
             // Utilisation de la méthode createView pour créer la view du formulaire
             'form' => $form->createView()
         ]);

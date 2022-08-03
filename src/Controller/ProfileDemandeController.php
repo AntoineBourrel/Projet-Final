@@ -17,63 +17,63 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class AdminDemandeController extends AbstractController
+class ProfileDemandeController extends AbstractController
 {
     /**
-     * @Route("/admin/demande/", name="admin_demande_choice")
+     * @Route("/profile/demande/", name="profile_demande_choice")
      */
     public function demandeChoice()
     {
-        return $this->render('admin/demande.html.twig');
+        return $this->render('profile/demande.html.twig');
     }
 
     /**
-     * @Route("/admin/demandee-list-magic/", name="admin_demande_list_magic")
+     * @Route("/profile/demandee-list-magic/", name="profile_demande_list_magic")
      */
     public function demandeListMagic(DemandeRepository $demandeRepository)
     {
         $demandesMagic = $demandeRepository->findBy(array('game' => 'Magic the Gathering'));
-        return $this->render('admin/demande-list-magic.html.twig', [
+        return $this->render('profile/demande-list-magic.html.twig', [
             'demandes' => $demandesMagic
         ]);
     }
 
     /**
-     * @Route("/admin/demande-list-pokemon/", name="admin_demande_list_pokemon")
+     * @Route("/profile/demande-list-pokemon/", name="profile_demande_list_pokemon")
      */
     public function demandeListPokemon(DemandeRepository $demandeRepository)
     {
         $demandesPokemon = $demandeRepository->findBy(array('game' => 'Pokemon'));
-        return $this->render('admin/demande-list-pokemon.html.twig', [
+        return $this->render('profile/demande-list-pokemon.html.twig', [
             'demandes' => $demandesPokemon
         ]);
     }
 
     /**
-     * @Route("/admin/demande-list-yugioh/", name="admin_demande_list_yugioh")
+     * @Route("/profile/demande-list-yugioh/", name="profile_demande_list_yugioh")
      */
     public function demandeListYugioh(DemandeRepository $demandeRepository)
     {
         $demandesYugioh = $demandeRepository->findBy(array('game' => 'Yu-Gi-Oh'));
-        return $this->render('admin/demande-list-yugioh.html.twig', [
+        return $this->render('profile/demande-list-yugioh.html.twig', [
             'demandes' => $demandesYugioh
         ]);
     }
 
     /**
-     * @Route("/admin/demande-show/{id}", name="admin_demande_show")
+     * @Route("/profile/demande-show/{id}", name="profile_demande_show")
      */
     public function demandeShow($id, DemandeRepository $demandeRepository)
     {
         $demande = $demandeRepository->find($id);
 
-        return $this->render('admin/demande-show.html.twig', [
+        return $this->render('profile/demande-show.html.twig', [
             'demande' => $demande
         ]);
     }
 
     /**
-     * @Route("/admin/demande-insert/", name="admin_demande_insert")
+     * @Route("/profile/demande-insert/", name="profile_demande_insert")
      */
     public function demandeInsert(EntityManagerInterface $entityManager, Request $request)
     {
@@ -95,14 +95,14 @@ class AdminDemandeController extends AbstractController
             $this->addFlash('success', 'Vous avez bien ajouté votre demande');
         }
 
-        return $this->render('admin/demande-insert.html.twig', [
+        return $this->render('profile/demande-insert.html.twig', [
             // Utilisation de la méthode createView pour créer la view du formulaire
             'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/admin/demande-update/{id}", name="admin_demande_update")
+     * @Route("/profile/demande-update/{id}", name="profile_demande_update")
      */
     public function demandeUpdate($id, EntityManagerInterface $entityManager, Request $request, DemandeRepository $demandeRepository)
     {
@@ -124,14 +124,14 @@ class AdminDemandeController extends AbstractController
             $this->addFlash('success', 'Vous avez bien modifié votre demande');
         }
 
-        return $this->render('admin/demande-update.html.twig', [
+        return $this->render('profile/demande-update.html.twig', [
             // Utilisation de la méthode createView pour créer la view du formulaire
             'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/admin/demande-delete/{id}", name="admin_demande_delete")
+     * @Route("/profile/demande-delete/{id}", name="profile_demande_delete")
      */
     public function demandeDelete($id, EntityManagerInterface $entityManager, DemandeRepository $demandeRepository)
     {
@@ -141,9 +141,9 @@ class AdminDemandeController extends AbstractController
             $entityManager->remove($demande);
             $entityManager->flush();
             $this->addFlash('success', 'Vous avez bien supprimé votre demande');
-            return $this->redirectToRoute('admin_home');
+            return $this->redirectToRoute('profile_home');
         }
         $this->addFlash('error', 'Demande introuvable');
-        return $this->redirectToRoute('admin_home');
+        return $this->redirectToRoute('profile_home');
     }
 }

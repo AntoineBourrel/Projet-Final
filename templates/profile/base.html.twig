@@ -17,22 +17,23 @@
             <div class="row header-line">
                 <div class="col-3">
                     <div class="logo-block">
-                        <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="logo"></a>
+                        <a href="{{ path('profile_home') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="logo" class="logo"></a>
                         <p class="name-site font-weight-bold">Le Bazar Des Mages</p>
                     </div>
                 </div>
                 <div class="col-6 menu-block">
                     <ul class="menu-desktop">
-                        <li><a href="{{ path('home') }}">Accueil</a></li>
-                        <li><a href="{{ path('offre_choice') }}">Offres</a></li>
-                        <li><a href="{{ path('demande_choice') }}">Demandes</a></li>
-                        <li><a href="{{ path('article_list') }}">Articles</a></li>
-                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                        <li><a href="{{ path('profile_home') }}">Accueil</a></li>
+                        <li><a href="{{ path('profile_user_profil', {'id' :app.user.id }) }}">Compte</a></li>
+                        <li><a href="{{ path('profile_offre_choice') }}">Offres</a></li>
+                        <li><a href="{{ path('profile_demande_choice') }}">Demandes</a></li>
+                        <li><a href="{{ path('profile_article_list') }}">Articles</a></li>
+                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                     </ul>
                 </div>
                 <div class="col-3 flex-row align-items-center">
                     <div class="search-bar">
-                        <form class="d-flex" role="search" action="{{ path('search') }}" method="get">
+                        <form class="d-flex" role="search" action="{{ path('profile_search') }}" method="get">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                             <button class="btn btn-warning" type="submit">Search</button>
                         </form>
@@ -58,18 +59,19 @@
             <div class="row">
                 <div class="col-12 menu-block">
                     <ul class="menu-mobile d-b">
-                        <li><a href="{{ path('home') }}">Accueil</a></li>
-                        <li><a href="{{ path('offre_choice') }}">Offres</a></li>
-                        <li><a href="{{ path('demande_choice') }}">Demandes</a></li>
-                        <li><a href="{{ path('article_list') }}">Articles</a></li>
-                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                        <li><a href="{{ path('profile_home') }}">Accueil</a></li>
+                        <li><a href="{{ path('profile_user_profil', {'id' :app.user.id }) }}">Compte</a></li>
+                        <li><a href="{{ path('profile_offre_choice') }}">Offres</a></li>
+                        <li><a href="{{ path('profile_demande_choice') }}">Demandes</a></li>
+                        <li><a href="{{ path('profile_article_list') }}">Articles</a></li>
+                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="search-bar">
-                        <form class="d-flex" role="search" action="{{ path('search') }}" method="get">
+                        <form class="d-flex" role="search" action="{{ path('profile_search') }}" method="get">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </form>
@@ -79,6 +81,8 @@
         </div>
     </nav>
 </header>
+
+
 
 <main class="{% block classMain %}{% endblock %}">
     {% for message in app.flashes('success') %}

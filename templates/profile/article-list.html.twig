@@ -1,0 +1,19 @@
+{% extends 'profile/base.html.twig' %}
+
+{% block title %}
+    Liste d'articles
+{% endblock %}
+
+{% block classMain %}
+    article-list
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% for article in articles %}
+            <div class="row article-block align-items-center">
+                {{ include('front/_article.html.twig') }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
