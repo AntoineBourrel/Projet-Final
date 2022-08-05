@@ -50,6 +50,7 @@ class AdminUserController extends AbstractController
         // Si le formulaire à été posté et que les données sont valides, on envoie sur la base de données
         if($form->isSubmitted() && $form->isValid()){
 
+            $user->setIsVerified(true);
             $plainPassword = $form->get('password')->getData();
             $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
             $user->setPassword($hashedPassword);
@@ -103,6 +104,7 @@ class AdminUserController extends AbstractController
         // Si le formulaire à été posté et que les données sont valides, on envoie sur la base de données
         if($form->isSubmitted() && $form->isValid()){
 
+            $user->setIsVerified(true);
             $plainPassword = $form->get('password')->getData();
             $hashedPassword = $userPasswordHasher->hashPassword($user, $plainPassword);
             $user->setPassword($hashedPassword);

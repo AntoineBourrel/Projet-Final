@@ -34,9 +34,14 @@ class LoginController extends AbstractController
     public function onAuthenticationSuccess(Request $request)
     {
         $user = $this->getUser();
-        if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
-            return $this->redirectToRoute('admin_home');
+        if($user != 'anon'){
+            if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+                return $this->redirectToRoute('admin_home');
+            }
+            if (in_array('ROLE_USER', $user->getRoles(), true)) {
+                return $this->redirectToRoute('profile_home');
+            }
         }
-        return $this->redirectToRoute('profile_home');
+        return $this->redirectToRoute('home');
     }
 }

@@ -346,6 +346,10 @@ footer a {
     margin-bottom: 1rem;
   }
 }
+.register {
+  padding-top: 1rem;
+}
+
 body {
   margin: 0;
   padding: 0;
